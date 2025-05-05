@@ -26,3 +26,5 @@ const Tour = ({ id, name, image, info, price, removeTour }) => {
 };
 
 export default Tour;
+
+
