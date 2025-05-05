@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
-import Tours from './Tours';
 import Tour from './Tour';
+import Tours from './Tours';
+
 const url = 'https://course-api.com/react-tours-project';
 
 function App() {
@@ -11,13 +12,13 @@ function App() {
   const fetchTours = () => {
     setLoading(true);
     fetch(url)
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         setTours(data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error('Error fetching tours:', error);
+      .catch((err) => {
+        console.error('Fetch error:', err);
         setLoading(false);
       });
   };
@@ -31,13 +32,11 @@ function App() {
     setTours(newTours);
   };
 
-  if (loading) {
-    return <Loading />;
-  }
+  if (loading) return <Loading />;
 
   if (tours.length === 0) {
     return (
-      <main>
+      <main id="main">
         <h2>No tours left</h2>
         <button onClick={fetchTours}>Refresh</button>
       </main>
@@ -45,7 +44,7 @@ function App() {
   }
 
   return (
-    <main>
+    <main id="main">
       <h1>Our Tours</h1>
       <Tours tours={tours} removeTour={removeTour} />
     </main>
