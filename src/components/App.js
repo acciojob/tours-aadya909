@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Loading from './components/Loading';
-import Tours from './components/Tours';
+import Loading from './Loading';
+import Tour from './Tour';
+import Tours from './Tours';
 
 const url = 'https://course-api.com/react-tours-project';
 
